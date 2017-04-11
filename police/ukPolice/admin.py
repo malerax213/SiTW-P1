@@ -1,4 +1,4 @@
 from django.contrib import admin
-import models
+from ukPolice.models import *
 
-admin.site.register(models.Crime)
+admin.site.register(Crime)

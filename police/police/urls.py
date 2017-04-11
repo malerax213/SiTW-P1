@@ -16,10 +16,23 @@ Including another URLconf
 from django.conf.urls import url, include
 from django.contrib import admin
 from django.contrib.auth.views import login, logout
+from ukPolice.views import main, signup, home
 
 urlpatterns = [
+    url(r'^$', main, name='main'),
+    url(r'^signup$', signup, name='signup'),
+    url(r'^login$', login, {'template_name': 'login.html', }, name="login"),
+    url(r'^logout$', logout, {'template_name': 'main.html', }, name="logout"),
+    url(r'^home$', home, name='home'),
     url(r'^admin/', admin.site.urls),
+]
+
+#urlpatterns = [
     #url(r'^ukPolice/', include('ukPolice.urls', namespace='ukPolice')),
     #url(r'^accounts/login/$', login, name='login'),
     #url(r'^accounts/logout/$', logout, name='logout'),
-]
+    #url(r'^profile/(\w+)/$', dashboard), # Expressio regular-->Qualsevol lletra que conformi una paraula sense linies
+    #url(r'^$', views.index, name='login'),
+    #url(r'^$', login, {'template_name':'index.html'}, name='login'),
+    #url(r'^admin/', admin.site.urls),
+#]
