@@ -11,15 +11,25 @@ from django.core.urlresolvers import reverse
 from django.contrib.auth.decorators import login_required
 
 
+#def userpage(request):
+    #return render_to_response("first.html",{
+        #'appname': "Uk Police",
+        #'titlepage': "Crimes",
+        #'author': "Alexandru Martinas & Kevin Garcia"
+    #})
+
 @login_required()
 def home(request):
-    return render_to_response('home.html', {'user': request.user})
+    return render_to_response('home.html', {
+        'user': request.user
+
+    })
 
 def main(request):
     return render_to_response('main.html')
 
 def signup(request):
-    if request.method == 'POST':  # If the form has been submitted...
+    if request.method == 'POST': # If the form has been submitted...
         form = SignUpForm(request.POST)  # A form bound to the POST data
         if form.is_valid():  # All validation rules pass
 

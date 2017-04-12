@@ -23,7 +23,7 @@ urlpatterns = [
     url(r'^signup$', signup, name='signup'),
     url(r'^login$', login, {'template_name': 'login.html', }, name="login"),
     url(r'^logout$', logout, {'template_name': 'main.html', }, name="logout"),
-    url(r'^home$', home, name='home'),
+    url(r'^home/', home, name="home"),
     url(r'^admin/', admin.site.urls),
 ]
 

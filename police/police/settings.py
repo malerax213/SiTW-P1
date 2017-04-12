@@ -49,7 +49,7 @@ MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
-    'django.middleware.csrf.CsrfViewMiddleware',
+    #'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
@@ -127,6 +127,6 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 # Redirect when login is correct.
-LOGIN_REDIRECT_URL = "/first.html"
+LOGIN_REDIRECT_URL = "/home"
 # Redirect when login is not correct.
 LOGIN_URL = '/'
