@@ -10,19 +10,10 @@ from django.http.response import HttpResponseRedirect
 from django.core.urlresolvers import reverse
 from django.contrib.auth.decorators import login_required
 
-
-#def userpage(request):
-    #return render_to_response("first.html",{
-        #'appname': "Uk Police",
-        #'titlepage': "Crimes",
-        #'author': "Alexandru Martinas & Kevin Garcia"
-    #})
-
 @login_required()
 def home(request):
     return render_to_response('home.html', {
         'user': request.user
-
     })
 
 def main(request):
@@ -58,3 +49,14 @@ def signup(request):
         'form': form,
     }
     return render_to_response('signup.html', data)
+
+def crimes(request):
+    return render_to_response('crimes.html', {
+        'user': request.user
+    })
+
+def outcomes(request):
+    return render_to_response('outcomes.html')
+
+def neighbourhoodpriorities(request):
+    return render_to_response('neighbourhoodpriorities.html')

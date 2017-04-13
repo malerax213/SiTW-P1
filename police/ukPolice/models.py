@@ -13,10 +13,6 @@ class Crime(models.Model):
     date = models.DateField(default=date.today)
     policeman_assignated = models.ForeignKey(User, default='')
 
-
-    #def get_absolute_url(self):
-        #return reverse('ukPolice:Crime_detail', kwargs={'pk': self.pk})
-
     def __unicode__(self):
         return self.category+"."+self.persisten_id
 
@@ -33,3 +29,31 @@ class StreetLevelCrime(models.Model):
     crime = models.ForeignKey(Crime)
     street_id = models.TextField(max_length=20)
     street_name = models.TextField(max_length=20)
+
+    def __unicode__(self):
+        return self.crime+"."+self.street_name
+
+class StreetLevelOutcome(models.Model):
+    outcome = models.ForeignKey(Outcome)
+    street_id = models.TextField(max_length=20)
+    street_name = models.TextField(max_length=20)
+
+    def __unicode__(self):
+        return self.outcome+"."+self.street_name
+
+class Neighbourhood(models.Model):
+    n_id = models.TextField(max_length=20)
+    n_name = models.TextField(max_length=30)
+
+    def __unicode__(self):
+        return self.n_id+"."+self.n_name
+
+class NeighbourhoodPriority(models.Model):
+    action = models.TextField(max_length=20,blank=True,null=True)
+    action_date = models.DateField(default=date.today,blank=True,null=True)
+    issue = models.TextField(max_length=50)
+    issue_date = models.DateField(default=date.today)
+    neighbourhood = models.ForeignKey(Neighbourhood)
+
+    def __unicode__(self):
+        return str(self.neighbourhood)+"."+str(self.issue_date)

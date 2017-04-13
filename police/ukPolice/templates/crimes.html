@@ -1,0 +1,9 @@
+<h1>Crimes of {{ user}}</h1>
+{% if crimes %}
+<ul>{% for crime in crime %}
+<li>{{ crime.policeman_assignated}} {{ crime.category}} {{ crime.date}}</li>
+{% endfor %}
+</ul>
+{% else %}
+<h4> There isn't any crime</h4>
+{% endif %}
