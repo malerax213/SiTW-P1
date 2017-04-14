@@ -31,7 +31,7 @@ class StreetLevelCrime(models.Model):
     street_name = models.TextField(max_length=20)
 
     def __unicode__(self):
-        return self.crime+"."+self.street_name
+        return str(self.crime)+"."+str(self.street_name)
 
 class StreetLevelOutcome(models.Model):
     outcome = models.ForeignKey(Outcome)
@@ -39,7 +39,7 @@ class StreetLevelOutcome(models.Model):
     street_name = models.TextField(max_length=20)
 
     def __unicode__(self):
-        return self.outcome+"."+self.street_name
+        return str(self.outcome)+"."+str(self.street_name)
 
 class Neighbourhood(models.Model):
     n_id = models.TextField(max_length=20)

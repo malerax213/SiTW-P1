@@ -9,6 +9,7 @@ from forms import SignUpForm
 from django.http.response import HttpResponseRedirect
 from django.core.urlresolvers import reverse
 from django.contrib.auth.decorators import login_required
+from ukPolice.models import Outcome, NeighbourhoodPriority
 
 @login_required()
 def home(request):
@@ -51,12 +52,24 @@ def signup(request):
     return render_to_response('signup.html', data)
 
 def crimes(request):
+    user = User.objects.get(username=request.user)
+    crimes = user.crime_set.all()
+
     return render_to_response('crimes.html', {
-        'user': request.user
+        'username': request.user,
+        'crimes': crimes
     })
 
 def outcomes(request):
-    return render_to_response('outcomes.html')
+    outcomes = Outcome.objects.all()
+
+    return render_to_response('outcomes.html', {
+        'outcomes': outcomes
+    })
 
 def neighbourhoodpriorities(request):
-    return render_to_response('neighbourhoodpriorities.html')
+    np = NeighbourhoodPriority.objects.all()
+
+    return render_to_response('neighbourhoodpriorities.html', {
+        'np': np 
+    })

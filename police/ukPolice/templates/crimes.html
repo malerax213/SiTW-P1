@@ -1,7 +1,8 @@
-<h1>Crimes of {{ user}}</h1>
+<h1>Crimes of {{ username}}</h1>
 {% if crimes %}
-<ul>{% for crime in crime %}
-<li>{{ crime.policeman_assignated}} {{ crime.category}} {{ crime.date}}</li>
+<ul>{% for crime in crimes %}
+<li>You're assigned to: {{ crime.category}} / Date: {{ crime.date}} /
+ID: {{ crime.persisten_id}}</li>
 {% endfor %}
 </ul>
 {% else %}
