@@ -11,7 +11,6 @@ https://docs.djangoproject.com/en/1.10/ref/settings/
 """
 
 import os
-from django.core.urlresolvers import reverse_lazy
 import django.contrib.auth
 import django.contrib.contenttypes
 
